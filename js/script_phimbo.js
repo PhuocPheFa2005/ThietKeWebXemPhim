@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
         watchNowBtn.onclick = () => {
           // Chuyển tới trang chieuphimleX.html, nơi X là chỉ số phim
           const movieIndex = index + 1; // Thêm 1 để bắt đầu từ 1 thay vì 0
-          window.location.href = `chieuphimboS${movieIndex}.html`;
+          window.location.href = `chieuphimbo${movieIndex}.html`;
         };
       }
 

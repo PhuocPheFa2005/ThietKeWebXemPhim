@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar d-flex justify-content-between">
             <a class="navbar-brand" href="/html/trangchu.html">
-                <img src="/images/logo.webp" alt="APK Movie">
+                <img src="/IMAGES/logo.webp" alt="APK Movie">
                 <span data-key="site-name">APK</span>
             </a>
             <div class="search-bar">
@@ -25,9 +25,9 @@
             </div>
             <button class="menu-toggle">☰</button>
             <div class="menu">
-                <a href="/html/chude.html" data-key="menu-topic">Chủ Đề</a>
-                <a href="/html/phimle.html" data-key="menu-movies">Phim Lẻ</a>
-                <a href="/html/phimbo.html" data-key="menu-series">Phim Bộ</a>
+                <a href="/HTML/chude.html" data-key="menu-topic">Chủ Đề</a>
+                <a href="/HTML/phimle.html" data-key="menu-movies">Phim Lẻ</a>
+                <a href="/HTML/phimbo.html" data-key="menu-series">Phim Bộ</a>
                 <div class="dropdown country-dropdown">
                     <a class="dropdown-toggle" data-key="menu-country">Quốc gia</a>
                     <div class="dropdown-menu">
@@ -37,10 +37,69 @@
                         <a href="/html/phimPhap.html" class="dropdown-item">Pháp</a>
                     </div>
                 </div>
-                <a href="/html/Dienvien.html" data-key="menu-actors">Diễn Viên</a>
+                <a href="/HTML/Dienvien.html" data-key="menu-actors">Diễn Viên</a>
             </div>
-            <button class="btn btn-outline-light" data-key="btn-signup">Đăng Ký</button>
-            <button class="btn btn-primary" data-key="btn-login">Đăng Nhập</button>
+                <div class="auth-buttons">
+                    <div id="user-info" class="user-info" style="display: none;">
+                    </div>
+                    
+                    <button class="btn btn-outline-light" data-key="btn-signup" onclick="openRegisterForm()">Đăng Ký</button>
+                    <button class="btn btn-primary" data-key="btn-login" onclick="openLoginForm()">Đăng Nhập</button>
+                  </div>
+                  
+    
+                  <div id="overlay" class="overlay" style="display: none;">
+                    <div class="form-container">
+                      <span class="close-btn" onclick="closeForm()">✖</span>
+                  
+    
+                      <div id="login-form" class="form-content">
+                        <h2>Đăng nhập</h2>
+                        <p>Nếu bạn chưa có tài khoản, <a href="#" onclick="showRegister()">đăng ký ngay</a></p>
+                        <input type="email" placeholder="Email (admin@example.com)" id="login-email" required />
+                        <input type="password" placeholder="Mật khẩu (admin123)" id="login-password" required />
+                        <button class="btn-submit" onclick="loginUser()">Đăng nhập</button>
+                        <a href="#">Quên mật khẩu?</a>
+                      </div>
+                  
+    
+                      <div id="register-form" class="form-content" style="display: none;">
+                        <h2>Đăng ký</h2>
+                        <p>Nếu bạn đã có tài khoản, <a href="#" onclick="showLogin()">đăng nhập</a></p>
+                        <input type="text" placeholder="Tên hiển thị" id="register-username" required />
+                        <input type="email" placeholder="Email" id="register-email" required />
+                        <input type="password" placeholder="Mật khẩu" id="register-password" required />
+                        <input type="password" placeholder="Nhập lại mật khẩu" id="register-confirm-password" required />
+                        <button class="btn-submit" onclick="registerUser()">Đăng ký</button>
+                      </div>
+                  
+    
+                      <div id="edit-profile-form" class="form-content" style="display: none;">
+                        <h2>Chỉnh sửa thông tin</h2>
+                  
+             
+                        <div class="avatar-preview">
+                          <label for="edit-avatar">
+                            <img id="avatar-preview-img" src="/images/tron1.webp" alt="Ảnh đại diện" />
+                          </label>
+                        </div>
+                  
+                  
+                        <input type="file" id="edit-avatar" accept="image/*" onchange="previewAvatar()" style="display: none;" />
+                  
+                        <label for="edit-username">Tên hiển thị</label>
+                        <input type="text" id="edit-username" placeholder="Tên hiển thị" required />
+                  
+                        <label for="edit-email">Email</label>
+                        <input type="email" id="edit-email" placeholder="Email" required />
+                  
+                        <div class="form-buttons">
+                          <button class="btn-submit" onclick="saveProfileChanges()">💾 Lưu thay đổi</button>
+                          <button class="btn-submit logout-btn" onclick="logoutUser()">🚪 Đăng xuất</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
         </nav>
     </header>
     <div class="new-layout">
